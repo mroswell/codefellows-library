@@ -42,18 +42,20 @@ class Shelf
 end
 
 class Book
+# trying to glean from http://stackoverflow.com/questions/4370960/what-is-attr-accessor-in-ruby
+attr_accessor :enshelve
+attr_accessor :unshelve
+
    def initialize(bookname, shelf="not-shelved")
     @bookname = bookname
     @shelf = shelf
    end
-   
-   def enshelf(shelf)
-      this.setShelf(shelf)
-   end
-
+=begin
    def unshelf
-      this.setShelf("not-shelved") 
+      this.enshelve("not-shelved") 
    end
+=end
+   
 end
 
 # Instantiate Library, Shelf, and Book 

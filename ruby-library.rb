@@ -13,10 +13,12 @@ class Library
 
   # print list of books within the library (or try to!)
   def listBooks
+    # not sure how we go from Book class to books array, so this method does not work, 
+	# because there is no books array.
    books.each do |book|
     puts book
    end
-	end
+  end
 
   def countshelves
   puts shelfs.length
@@ -25,7 +27,7 @@ end
 
 =begin
   # not sure if we add and remove a shelf from the library class or the shelf class
-	def addShelf(shelf)
+  def addShelf(shelf)
 	this.push(shelf)
 	end
 	
@@ -42,19 +44,26 @@ class Shelf
 end
 
 class Book
+
+=begin
 # trying to glean from http://stackoverflow.com/questions/4370960/what-is-attr-accessor-in-ruby
-attr_accessor :enshelve
-attr_accessor :unshelve
+# But maybe this is more for "adjective"-style attributes, as opposed to action methods.
+attr_accessor :enshelf
+attr_accessor :unshelf
+=end
 
    def initialize(bookname, shelf="not-shelved")
     @bookname = bookname
     @shelf = shelf
    end
-=begin
-   def unshelf
-      this.enshelve("not-shelved") 
+
+   def enshelf(shelf)
+     @shelf = shelf
    end
-=end
+
+   def unshelf
+      this.enshelf("not-shelved") 
+   end
    
 end
 
@@ -63,3 +72,9 @@ library = Library.new("Old Alexandria", 54321)
 shelf = Shelf.new("Nutrition",500)
 rawbook1  = Book.new("Raw Food Made Easy", "Nutrition") 
 
+=begin
+# my listBooks method doesn't work:
+# main.rb:16:in `listBooks': undefined local variable or method `books' for # (NameError)
+# from main.rb:73
+library.listBooks
+=end

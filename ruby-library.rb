@@ -14,7 +14,10 @@ class Library
   # print list of books within the library (or try to!)
   def listBooks
     # not sure how we go from Book class to books array, so this method does not work, 
-	# because there is no books array.
+    # because there is no books array.
+    # http://stackoverflow.com/questions/14532844/ruby-array-of-objects-classes
+    # books = [@bookname]
+    # Book.all_instances
    books.each do |book|
     puts book
    end
